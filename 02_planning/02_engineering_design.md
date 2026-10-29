@@ -2,21 +2,19 @@
 
 **Team members:**
 
-Plan how your code will meet the product requirements. Keep answers brief.
+**State:** What do `page`, `new_posts`, and `feed` represent? When should each change?
 
-## Inputs
+**Loop control:** What should repeat? What should make each loop stop?
 
-*List each input and its Python data type. Note any assumptions from the problem statement.*
+**Input:** How will you handle valid, invalid, and differently capitalized answers?
 
-## Processing
+**Helper:** What does `fetch_page(page)` return when there are no posts left?
 
-*What calculations, conversions, or other operations will the program perform on the inputs? Include decisions or repetition if the lab requires them.*
+**Pseudocode:** Write your repair plan before changing the code.
 
+```text
 
-## Output
+```
 
-*What will the program display? How will you format it?*
-
-## Functions
-
-*If this lab uses functions, give each function's name, purpose, parameters, and returned result (or none). Explain how the program starts. If functions are not part of this lab, write “Not applicable.”*
+**Repair explanation:** Choose one defect. Explain its cause, your change, and
+which test provides evidence that the repair works.

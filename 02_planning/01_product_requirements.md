@@ -2,22 +2,24 @@
 
 **Team members:**
 
-Translate the problem statement into requirements. Keep answers brief.
+In your own words, identify the user's goal and summarize the requirements from
+the [README](../README.md). Keep each requirement specific enough to test.
 
-## User and goal
-
-**Who will use this program?**
-
-**What problem will it help them solve?**
-
-## Requirements
-
-Write each requirement as “The program must…” in your own words. Cover the inputs, processing, and output described in the problem statement. Include any required formatting or validation. Make each statement specific enough to check. Add numbered items as needed.
+**User and goal:**
 
 1. The program must
 2. The program must
 3. The program must
 
-## Success
+Add items as needed.
 
-**What should the user be able to do when the program works?**
+## Bug investigation
+
+Record the input that reproduced each report, the observed behavior, and the
+behavior you expected. If a defect is hidden by another defect, return to it later.
+
+| Report | Reproduction input | Observed behavior | Expected behavior |
+| --- | --- | --- | --- |
+| #104 | | | |
+| #107 | | | |
+| #112 | | | |

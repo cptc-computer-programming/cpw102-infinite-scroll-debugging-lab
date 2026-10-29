@@ -1,27 +1,15 @@
-# Problem Statement
+# Initialize
 
-## {{LAB_TITLE}}
+Read the scenario, bug reports, and required behavior in the [README](../README.md).
+That is the complete lab specification.
 
-{{SCENARIO}}
+## Learning goals
 
-{{EXPECTED_BEHAVIOR}}
+- Trace how a `while` loop changes page state and eventually terminates.
+- Use `for` loops to accumulate and display a list of posts.
+- Validate input without accidentally repeating a data-loading operation.
+- Reproduce a defect, explain its cause, and verify a repair with a partner.
 
-## Learning Goals
+**Team members:**
 
-{{LEARNING_GOALS}}
-
-## Example terminal run
-
-```text
-{{EXAMPLE_RUN}}
-```
-
-Your prompts and layout may differ unless an exact format is required below.
-
-## Technical expectations
-
-{{TECHNICAL_EXPECTATIONS}}
-
-## Assumptions and limits
-
-{{ASSUMPTIONS_AND_LIMITS}}
+**First driver / navigator:**

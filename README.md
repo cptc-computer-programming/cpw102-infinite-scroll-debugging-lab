@@ -1,142 +1,105 @@
-# CPW 102 {{LAB_TITLE}}
+# CPW 102: Infinite Scroll Code Rescue
 
-> **Instructor setup:** Before distributing this lab, complete [Template Setup](TEMPLATE_SETUP.md) and replace all `{{...}}` placeholders.
+**CS50P Week 2: Loops | Pairs | About 50 minutes**
 
-This project is organized into phases. Complete each phase in order.
+Your team maintains a social media feed. It loads three posts at a time as the
+user scrolls. The previous developer left a working program with broken behavior.
+Repair it using loops, conditions, and lists. No packages or internet connection
+are needed to run the program.
 
-Each folder represents a phase of the engineering design process:
+## 1. Join your pair's branch
 
-```text
-01_initialization
-02_planning
-03_execution
-04_testing
-05_shipping
-```
+Everyone uses this shared class repository. Your instructor must give you write
+access before you can publish a branch. Do not create a separate repository.
 
----
+1. Open this repository with **Code > Open with GitHub Desktop**, then clone it.
+2. One partner creates a branch from `main` named `pair-lastname-lastname`
+   (for example, `pair-smith-jones`) and clicks **Publish branch**.
+3. The other partner clones the same repository, clicks **Fetch origin**, and
+   selects that pair branch under **Current branch**.
+4. Open the repository in Visual Studio Code. Check your branch before editing.
 
-# 1. Create Your Repository from the Template
+Work only on your pair's branch. Keep `main` unchanged and leave other pairs'
+branches alone. Use one driver at a time. If you switch computers, commit and push
+before switching; the next driver fetches and pulls before editing.
 
-1. Open the assignment repository in GitHub.
-2. Near the top of the page, click **Use this template**.
-3. Click **Create a new repository**.
-4. Choose your GitHub account as the owner.
+## 2. Reproduce the reports — 10 minutes
 
-For **Repository name**, use:
-
-```text
-lastname-cpw102-{{LAB_SLUG}}
-```
-
-If you are working with more than one person, include each group member's last name:
+From the repository folder, run this with Python 3:
 
 ```text
-lastname-lastname-cpw102-{{LAB_SLUG}}
+python 03_execution/main.py
 ```
 
-Example:
+If your system uses `python3` or `py`, use that command instead of `python`.
+The starter is intentionally buggy. Use `n` to end a run, or Ctrl+C if needed.
 
-```text
-smith-jones-cpw102-{{LAB_SLUG}}
-```
+Investigate these reports:
 
-5. Set the repository visibility to **Public**.
-6. Click **Create repository**.
+- **#104:** “Every time I scroll, I get the same three posts again.”
+- **#107:** “The feed never tells me I've reached the end.”
+- **#112:** “I typed something other than y or n, and it loaded more posts.”
 
-You should now be viewing your own copy of the project.
+Record observations and a repair plan in [Product Requirements](02_planning/01_product_requirements.md)
+and [Engineering Design](02_planning/02_engineering_design.md). A bug may hide
+another bug; return to a report after making your first repair.
 
----
+## 3. Repair the feed — 25 minutes
 
-# 2. Add Group Members
+Edit [03_execution/main.py](03_execution/main.py). Switch driver and navigator
+halfway through. The navigator traces the state and checks each change.
 
-If you are working alone, skip this section.
+The repaired program must:
 
-If you are working with a group:
+1. Load the first page automatically. Each `y` loads the next page in order.
+2. Keep earlier posts in the feed. Each source post appears once within each
+   displayed feed; redrawing earlier posts on later screens is expected.
+3. Display the full accumulated feed and its correct count after each load.
+4. On an empty page, print `No more posts.` and end without asking again.
+   A short final page is still displayed; the next `y` checks for an empty page.
+5. End immediately when the user enters `n`, without loading another page.
+6. Accept `y` and `n` regardless of capitalization or surrounding spaces.
+   For anything else, print `Please enter y or n.` and ask again without
+   fetching a page, changing the feed, or advancing the page number.
+7. Print `Session ended.` once when the session ends normally.
 
-1. Open your repository on GitHub.
-2. Click the **Settings** tab.
-3. In the left sidebar, click **Collaborators**.
-4. Click **Add people**.
-5. Search for your group member's GitHub username.
-6. Send the invitation.
+Keep the supplied `posts`, `PAGE_SIZE`, and `fetch_page(page)` helper for the
+normal run. Repair the loop logic rather than hard-coding the eight-post answer.
+You may add loops and conditions. No classes, networking, or external libraries
+are needed. The supplied helper uses a list slice: `posts[start:end]` returns
+items from `start` up to, but not including, `end`. Page numbers begin at zero.
+Treat that helper as provided infrastructure.
 
-Each group member should accept the invitation before beginning work.
+The feed is fixed during a session, and each source post is distinct. Handling
+duplicate data from a server, network failures, or invalid page sizes is outside
+this lab. Use a positive integer page size.
 
----
+For the default eight posts, successive displayed counts are **3, 6, 8**.
+After that, one more `y` prints `No more posts.` and `Session ended.`.
 
-# 3. Clone the Repository with GitHub Desktop
+## 4. Verify — 10 minutes
 
-You need a copy of the repository on your computer before you can edit it.
+Complete the [test scenarios](04_testing/01_testing_cases.md), predicting each
+result before running it. Include input/output evidence and rerun failed cases.
+Restore the original eight posts and `PAGE_SIZE = 3` after boundary tests.
 
-1. Open your repository on GitHub.
-2. Click the green **Code** button.
-3. Click **Open with GitHub Desktop**.
-4. GitHub Desktop should open.
-5. Choose where you want the project saved on your computer.
-6. Click **Clone**.
+## 5. Ship — 5 minutes
 
-You now have a local copy of the repository.
+Commit and push your code, planning notes, and test evidence to your pair branch
+using GitHub Desktop. Open **one pull request per pair** from your branch into
+this repository's `main`. Title it `Infinite Scroll Code Rescue — Name and Name`.
+Name both partners, explain one root cause and its repair, and list any remaining
+issues. **Leave the pull request open; do not merge it.** Each partner submits
+that same pull request URL in Canvas. Be ready to demonstrate a repair.
 
----
+## Files
 
-# 4. Create a Branch
+| Location | Purpose |
+| --- | --- |
+| `01_initialization/` | Learning goals and starting point |
+| `02_planning/` | Pair investigation and design worksheets |
+| `03_execution/main.py` | Intentionally buggy starter; edit this file |
+| `04_testing/` | Manual test scenarios and evidence |
+| `05_shipping/` | Submission checklist |
 
-Create a branch **before editing any project files**.
-
-In GitHub Desktop:
-
-1. Look near the top of the window for **Current branch**.
-2. Click **Current branch**.
-3. Click **New branch**.
-4. Name the branch:
-
-```text
-development
-```
-
-5. Click **Create branch**.
-6. If GitHub Desktop asks whether you want to publish the branch, click **Publish branch**.
-
-Your current branch should now be `development`.
-
-Do not complete the assignment directly on `main`.
-
----
-
-# 5. Open the Project in Visual Studio Code
-
-In GitHub Desktop:
-
-1. Make sure **Current branch** shows `development`.
-2. Click **Repository** in the menu bar.
-3. Click **Open in Visual Studio Code**.
-
-Visual Studio Code should open the project folder.
-
-You are now ready to begin the assignment.
-
----
-
-# 6. Start with `01_initialization`
-
-In Visual Studio Code:
-
-1. Find the **Explorer** panel on the left side.
-2. Expand `01_initialization`.
-3. Open [the problem statement](01_initialization/01_problem_statement.md).
-4. Read it carefully before completing any other documents.
-
-The problem statement describes the situation you are being asked to solve. Your job is to use that information to determine what the program needs to do.
-
-Do not begin writing Python code yet.
-
-## Complete the Phases
-
-1. **Initialization:** Read the problem statement.
-2. **Planning:** Complete [Product Requirements](02_planning/01_product_requirements.md) and [Engineering Design](02_planning/02_engineering_design.md), including your pseudocode.
-3. **Execution:** Implement your design in `03_execution/main.py`. The starter file is intentionally empty.
-4. **Testing:** Complete [Test Cases](04_testing/01_testing_cases.md). Calculate expected results before running your program.
-5. **Shipping:** Follow [Submission Instructions](05_shipping/01_submission_instructions.md) and submit your pull request URL in Canvas.
-
-See the problem statement for the input assumptions and limits of this lab.
+This is a course lab aligned with CS50P Week 2, not an official CS50 assignment.
