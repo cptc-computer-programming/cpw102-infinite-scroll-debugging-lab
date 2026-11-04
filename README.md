@@ -2,13 +2,21 @@
 
 ## GitHub Setup
 
-Clone this shared repository and create one branch per pair from `main`:
+Create one repository per team from this assignment template.
 
-```text
-bugfix/lastname-lastname
-```
+1. One partner clicks **Use this template → Create a new repository** and chooses their own GitHub account as the owner.
+2. Include both partners' last names in the repository name:
 
-Leave `main` and other pairs' branches unchanged.
+   ```text
+   lastname-lastname-cpw102-infinite-scroll-debugging-lab
+   ```
+
+3. Set the visibility to **Public** and click **Create repository**.
+4. Clone your team's repository using **Code → Open with GitHub Desktop**.
+5. Before editing, one create a branch in GitHub Desktop using **Current branch → New branch**. Name it `development`, then click **Publish branch**. 
+6. Open the project by clicking **Open in Visual Studio Code**.
+
+Both partners work in the same team repository on `development`. Keep `main` as the starter. 
 
 ## Expected Program Behavior
 
@@ -18,8 +26,9 @@ The program should:
 
 - Show the first three posts when the program starts, without asking the user to scroll first.
 - When the user enters `y`, add the next three posts in order. If fewer than three remain, add those remaining posts.
-- After loading posts, show all posts loaded so far and how many there are. Keep earlier posts visible, but do not add the same post twice.
-- After displaying the last posts, the next `y` should print `No more posts.` and end the session. If there are no posts when the program starts, print that message and end without asking the user to scroll.
+- After loading posts, show all posts loaded so far and a count of how many there are. 
+- After displaying the last posts, the next `y` should print `No more posts.` and end the session. 
+- If there are no posts when the program starts, print that message and end without asking the user to scroll.
 - When the user enters `n`, end the session without loading any more posts.
 - Accept uppercase and lowercase answers, including answers with spaces before or after them. For example, `Y` and ` y ` should both work like `y`.
 - For any other answer other than case-insensitive `y` or `n`, print `Please enter y or n.` and ask again. 
@@ -41,8 +50,10 @@ Debug the program, logging your work as you go. Make code changes to fix the abo
 
 ## Debugging Log
 
-Keep a chronological log of **every debugging step as you take it**, including unsuccessful attempts. Choose your own investigation methods and evidence. Log enough to make your instructor confident that you have thoroughly investigated and solved the users' bug(s).
+Keep a chronological log of **every debugging step as you take it**, including unsuccessful attempts. Commit frequently. Choose your own investigation methods and evidence. Log enough to make your instructor confident that you have thoroughly investigated and fixed the users' bug(s).
 
 ## Submission
 
-Push `feed.py` and `debugging-log.md` to your branch. Open one pull request into `main`, name both partners, and **leave it open—do not merge**. Only one partner need submit the pull request URL in Canvas.
+1. In GitHub Desktop, commit your changes, then click **Push origin**.
+2. Create one PR for the team on GitHub
+3. Leave the PR open. One partner submits the PR URL in Canvas on behalf of the team. Submit the PR link, not the repository homepage.
