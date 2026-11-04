@@ -1,52 +1,48 @@
-# CPW 102: Infinite Scroll Code Rescue
+# CPW 102: Infinite Scroll Incident
 
-**CS50P Week 2 · Pairs · About 50 minutes**
-
-## Incident INC-204
-
-Users report repeated posts, a feed that never finishes loading, and unexpected
-scrolling after invalid input. Investigate the intentionally buggy [feed.py](feed.py),
-repair it, and document the incident in [debugging-log.md](debugging-log.md).
+## GitHub Setup
 
 Clone this shared repository and create one branch per pair from `main`:
-`pair-lastname-lastname`. Both partners use that branch; alternate who drives.
-You need write access. Leave `main` and other pairs' branches unchanged.
 
 ```text
-python feed.py
+bugfix/lastname-lastname
 ```
 
-Use Python 3; no packages are needed. Use Ctrl+C to stop a stuck run.
+Leave `main` and other pairs' branches unchanged.
 
-## Expected behavior
+## Expected Program Behavior
 
-- Load the first page automatically; `y` loads the next page. Display the full
-  accumulated feed and count, with each source post appearing once per display.
-- An empty page prints `No more posts.` and ends without another prompt.
-  Display a short final page normally; the next `y` checks for an empty page.
-- `n` ends immediately. Accept either letter regardless of case or surrounding
-  spaces. Other input prints `Please enter y or n.` and asks again without
-  loading posts or changing the page or feed.
-- Every normal exit prints `Session ended.` once.
+Infinite scroll loads more content as you reach the bottom of a feed, keeping earlier posts visible. Try the [infinite-scroll demo](https://infinite-scroll.com/demo/full-page/) and watch new posts appear as you scroll. In this program, entering `y` simulates scrolling to load the next page.
 
-Repair the loop logic; keep the supplied helper and original data. Test beyond
-the normal case, including empty data, page boundaries, quitting, and invalid
-input. Restore the eight posts and page size 3 after testing.
+The program should:
 
-## Evidence and assessment
+- Show the first three posts when the program starts, without asking the user to scroll first.
+- When the user enters `y`, add the next three posts in order. If fewer than three remain, add those remaining posts.
+- After loading posts, show all posts loaded so far and how many there are. Keep earlier posts visible, but do not add the same post twice.
+- After displaying the last posts, the next `y` should print `No more posts.` and end the session. If there are no posts when the program starts, print that message and end without asking the user to scroll.
+- When the user enters `n`, end the session without loading any more posts.
+- Accept uppercase and lowercase answers, including answers with spaces before or after them. For example, `Y` and ` y ` should both work like `y`.
+- For any other answer other than case-insensitive `y` or `n`, print `Please enter y or n.` and ask again. 
+- Whenever the session ends through quitting or reaching the end of the feed, print `Session ended.` exactly once.
 
-Keep a chronological log of **every debugging step as you take it**, including
-unsuccessful attempts. Choose your own investigation methods and evidence.
+## User bug report
 
-Of 10 points: reproduction **2**, evidence-based investigation **3**, cause and
-repair **2**, before/after and boundary verification **2**, individual explanation
-**1**. The first nine points are shared. Each partner will briefly predict and
-explain a new case. An incorrect initial hypothesis does not lose credit when
-you test it and follow the evidence.
+Users submitted the following tickets with reports of buggy behavior! 
 
-## Handoff
+> “Every time I scroll, I see the same three posts added again instead of new ones.”
 
-Push `feed.py` and `debugging-log.md` to your pair branch. Open one pull request
-into `main`, name both partners, and **leave it open—do not merge**. Each partner
-submits the same pull request URL in Canvas. Remove temporary diagnostic prints
-before submitting.
+> “I keep scrolling, but I never reach the end. The app never tells me there are no more posts.”
+
+> “I typed ‘maybe’ instead of ‘y’ or ‘n’, and it loaded more posts anyway.”
+
+## Your Task
+
+Debug the program, logging your work as you go. Make code changes to fix the above bugs. 
+
+## Debugging Log
+
+Keep a chronological log of **every debugging step as you take it**, including unsuccessful attempts. Choose your own investigation methods and evidence. Log enough to make your instructor confident that you have thoroughly investigated and solved the users' bug(s).
+
+## Submission
+
+Push `feed.py` and `debugging-log.md` to your branch. Open one pull request into `main`, name both partners, and **leave it open—do not merge**. Only one partner need submit the pull request URL in Canvas.

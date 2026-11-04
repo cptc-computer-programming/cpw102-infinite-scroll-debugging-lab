@@ -1,5 +1,3 @@
-"""CPW 102: Infinite Scroll Code Rescue — intentionally buggy starter."""
-
 posts = [
     "New campus coffee shop opens",
     "Python workshop this Friday",
